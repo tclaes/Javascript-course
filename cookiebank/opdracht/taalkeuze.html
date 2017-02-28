@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Taalkeuze</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script type="text/javascript" src="nuttig_lib.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+
+			//Links inladen
+			var talen = document.querySelectorAll(".language");
+			var nederlands = talen[0];
+			var francais = talen[1];
+			var english = talen[2];
+
+
+
+			//Check voor cookie
+			if(localStorage){
+				console.log('Localstorage OK');
+				if(localStorage.language){
+					language = localStorage.language;
+					console.log(language);
+					window.location.assign(language + ".html");
+				}
+				else{
+					nederlands.addEventListener('click', function(){
+						createCookie(nederlands.id);
+						loadLanguage(nederlands.id);
+					});
+					francais.addEventListener('click', function(){
+						createCookie(francais.id);
+						loadLanguage(francais.id);
+					});
+					english.addEventListener('click', function(){
+						createCookie(english.id);
+						loadLanguage(english.id);
+					})
+
+					
+				}
+			}
+
+			var btnDel = document.getElementById('clearCookie');
+			btnDel.addEventListener('click', deleteCookie);
+
+		}
+
+		function loadLanguage(lang){
+			var lnk = document.getElementById(lang);
+			lnk.href = lang + ".html";
+		}
+		
+		function createCookie(lang){
+			console.log(lang);
+			localStorage.setItem('language',lang);
+		}
+
+
+
+	</script>
+</head>
+<body>
+<div class="container">
+<nav role="navigation">
+	<ul class="nav nav-tabs">
+		<li><a href="#" id="nederlands" class="language">Nederlands</a></li>
+		<li><a href="#" id="francais" class="language">Francais</a></li>
+		<li><a href="#" id="english" class="language">English</a></li>
+	</ul>
+</nav>
+</div>
+<div class="container">
+	<h1>Welkom, Bienvenue, Welcome</h1>
+	<p class="well">Kies je taal</p>
+	<p class="well">Choisissez votre langue</p>
+	<p class="well">Choose your language</p>
+	<button class="btn btn-default" id="clearCookie">Destroy Cookie</button>
+</div>
+</body>
+</html>

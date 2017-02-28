@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>English</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script type="text/javascript" src="nuttig_lib.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var btnDel = document.getElementById('clearCookie');
+			console.log(btnDel);
+			btnDel.addEventListener('click', function(){
+				deleteCookie()
+			});
+		}
+	</script>
+</head>
+<body>
+<div class="container">
+	<h1>Welkom</h1>
+	<p>Dit is het nederlandse gedeelte</p>
+	<button class="btn btn-default" id="clearCookie">Destroy Cookie</button>
+</div>
+</body>
+</html>
